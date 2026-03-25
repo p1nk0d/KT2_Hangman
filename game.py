@@ -166,8 +166,10 @@ def is_finished(game):
 def display_result(game):
     if "_" not in game["display"]:
         print(f"\nВы выиграли! Слово: {game['word']}")
+        input("Нажмите Enter, чтобы выйти...")
     else:
         print(f"\nВы проиграли. Слово: {game['word']}")
+        input("Нажмите Enter, чтобы выйти...")
 
 
 def run_game():
