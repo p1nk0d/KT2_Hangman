@@ -3,12 +3,20 @@ import random
 import os
 
 # загрузка этапов виселицы
-def load_hangman_stages_from_files(folder="stages", total=8):
+
+def load_hangman_stages_from_files(total=8):
+    """
+    Загружает все стадии виселицы из папки 'stages', которая находится рядом со скриптом.
+    total — количество стадий (по умолчанию 8, файлы 0.txt до 7.txt)
+    """
     stages = []
 
-    for i in range(total):
-        filename = os.path.join(folder, f"{i}.txt")
+    # путь к текущему скрипту
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    stages_folder = os.path.join(script_dir, "stages")
 
+    for i in range(total):
+        filename = os.path.join(stages_folder, f"{i}.txt")
         try:
             with open(filename, "r", encoding="utf-8") as f:
                 stages.append(f.read())
